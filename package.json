@@ -1,0 +1,38 @@
+{
+  "name": "rollup-plugin-bundleutils",
+  "version": "1.0.0",
+  "description": "A set of functions commonly used after tree shaking",
+  "homepage": "https://github.com/pschroen/rollup-plugin-bundleutils#readme",
+  "keywords": [
+    "rollup",
+    "plugin",
+    "bundle",
+    "utils",
+    "bundleutils"
+  ],
+  "author": "Patrick Schroen",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pschroen/rollup-plugin-bundleutils"
+  },
+  "bugs": {
+    "url": "https://github.com/pschroen/rollup-plugin-bundleutils/issues"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "node ./test/index.js",
+    "lint": "eslint . || exit 0"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "magic-string": "^0.22.4",
+    "uglify-es": "^3.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.7.1",
+    "rollup": "^0.50.0",
+    "tape": "^4.8.0"
+  }
+}
