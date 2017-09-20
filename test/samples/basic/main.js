@@ -1,4 +1,4 @@
-class GrumpyCat { 
+class GrumpyCat {
     speak() {
         return this;
     }
