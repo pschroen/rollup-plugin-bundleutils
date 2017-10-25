@@ -43,7 +43,7 @@ console.log(timestamp()); // 2017-09-19 4:55pm
 
 ### singletons
 
-Add singleton pattern to classes after tree shaking.
+Add singleton pattern (static class type) to classes after tree shaking.
 
 ```js
 // rollup.config.js
@@ -73,7 +73,7 @@ export { GrumpyCat };
 The result.
 
 ```js
-const GrumpyCat = new ( // Singleton pattern
+const GrumpyCat = new ( // Singleton static pattern
 
 class GrumpyCat {
     speak() {
@@ -81,7 +81,7 @@ class GrumpyCat {
     }
 }
 
-)(); // Singleton pattern
+)(); // Singleton static pattern
 
 export { GrumpyCat };
 ```
