@@ -31,7 +31,7 @@ function singletons(values = []) {
 
         transformBundle(code) {
             const magicString = new MagicString(code);
-            let pattern = new RegExp(`class (${values.join('|')})([\\s\\S]*?\\n})`, 'g'),
+            let pattern = new RegExp(`class (${values.join('|')})(\\s[\\s\\S]*?\\n})`, 'g'),
                 hasReplacements = false,
                 match,
                 start,
