@@ -1,4 +1,9 @@
 # rollup-plugin-bundleutils
+[![Build Status](https://travis-ci.org/pschroen/rollup-plugin-bundleutils.svg)]()
+[![Latest NPM release](https://img.shields.io/npm/v/rollup-plugin-bundleutils.svg)]()
+[![License](https://img.shields.io/npm/l/rollup-plugin-bundleutils.svg)]()
+[![Dependencies](https://img.shields.io/david/pschroen/rollup-plugin-bundleutils.svg)]()
+[![Dev Dependencies](https://img.shields.io/david/dev/pschroen/rollup-plugin-bundleutils.svg)]()
 
 A set of functions commonly used after tree shaking.
 
