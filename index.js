@@ -99,7 +99,7 @@ function babel() {
 
         transformBundle(code) {
             return transform(code, {
-                presets: ['env'],
+                presets: [['env', { modules: false }]],
                 sourceMaps: true
             });
         }
