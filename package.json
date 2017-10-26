@@ -24,6 +24,9 @@
     "test": "node ./test/index.js",
     "lint": "eslint . || exit 0"
   },
+  "engines": {
+    "node": ">=4"
+  },
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
