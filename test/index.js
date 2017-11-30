@@ -9,7 +9,7 @@ test('adds singleton pattern', assert => rollup.rollup({
     input: 'samples/basic/main.js',
     plugins: [ singletons(['GrumpyCat']) ]
 }).then(bundle => bundle.generate({ format: 'es' })).then(generated => {
-    assert.true(generated.code.indexOf('const GrumpyCat = new ( // Singleton static pattern') !== -1);
+    assert.true(generated.code.indexOf('const GrumpyCat = new ( // Singleton reassignment pattern') !== -1);
     assert.end();
 }).catch(err => {
     assert.error(err);
