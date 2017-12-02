@@ -24,6 +24,14 @@
     "semi": [
       "error",
       "always"
+    ],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
+    "key-spacing": [
+      "error",
+      { "mode": "minimum" }
     ]
   }
 }

@@ -43,7 +43,7 @@ function singletons(values = []) {
 
                 start = match.index;
                 end = start + match[0].length;
-                replacement = String(`const ${match[1]} = new ( // Singleton reassignment pattern\n\nclass ${match[1]}${match[2]}\n\n)(); // Singleton reassignment pattern`);
+                replacement = String(`const ${match[1]} = new ( // Singleton reassignment\n\nclass ${match[1]}${match[2]}\n\n)(); // Singleton reassignment`);
 
                 magicString.overwrite(start, end, replacement);
             }

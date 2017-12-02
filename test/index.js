@@ -1,15 +1,15 @@
 const rollup = require('rollup');
 const test = require('tape');
 
-const { singletons, unexport } = require('../index');
+const { singletons, unexport } = require('../');
 
-process.chdir(__dirname);
+process.chdir('test');
 
 test('adds singleton pattern', assert => rollup.rollup({
-    input: 'samples/basic/main.js',
+    input: 'fixtures/basic.js',
     plugins: [ singletons(['GrumpyCat']) ]
 }).then(bundle => bundle.generate({ format: 'es' })).then(generated => {
-    assert.true(generated.code.indexOf('const GrumpyCat = new ( // Singleton reassignment pattern') !== -1);
+    assert.true(~generated.code.indexOf('const GrumpyCat = new ( // Singleton reassignment'));
     assert.end();
 }).catch(err => {
     assert.error(err);
@@ -17,10 +17,10 @@ test('adds singleton pattern', assert => rollup.rollup({
 }));
 
 test('strip exports', assert => rollup.rollup({
-    input: 'samples/basic/main.js',
+    input: 'fixtures/basic.js',
     plugins: [ unexport() ]
 }).then(bundle => bundle.generate({ format: 'es' })).then(generated => {
-    assert.true(generated.code.indexOf('export') === -1);
+    assert.true(!~generated.code.indexOf('export'));
     assert.end();
 }).catch(err => {
     assert.error(err);
