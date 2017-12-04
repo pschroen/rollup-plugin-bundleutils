@@ -48,7 +48,7 @@ console.log(timestamp()); // 2017-09-19 4:55pm
 
 ### singletons
 
-Add singleton pattern (reassignment) to classes after tree shaking.
+Add singleton pattern (immediately invoked class expression) to classes after tree shaking.
 
 ```js
 // rollup.config.js
@@ -78,7 +78,7 @@ export { GrumpyCat };
 The result.
 
 ```js
-const GrumpyCat = new ( // Singleton reassignment
+const GrumpyCat = new ( // Singleton pattern (IICE)
 
 class GrumpyCat {
     speak() {
@@ -86,7 +86,7 @@ class GrumpyCat {
     }
 }
 
-)(); // Singleton reassignment
+)(); // Singleton pattern (IICE)
 
 export { GrumpyCat };
 ```

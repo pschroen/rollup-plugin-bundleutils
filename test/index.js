@@ -9,7 +9,7 @@ test('adds singleton pattern', assert => rollup.rollup({
     input: 'fixtures/basic.js',
     plugins: [ singletons(['GrumpyCat']) ]
 }).then(bundle => bundle.generate({ format: 'es' })).then(generated => {
-    assert.true(~generated.code.indexOf('const GrumpyCat = new ( // Singleton reassignment'));
+    assert.true(~generated.code.indexOf('const GrumpyCat = new ( // Singleton pattern (IICE)'));
     assert.end();
 }).catch(err => {
     assert.error(err);
