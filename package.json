@@ -31,11 +31,11 @@
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "magic-string": "^0.22.4",
-    "uglify-es": "^3.3.7"
+    "uglify-es": "^3.3.9"
   },
   "devDependencies": {
-    "eslint": "^4.15.0",
-    "rollup": "^0.54.0",
+    "eslint": "^4.16.0",
+    "rollup": "^0.55.1",
     "tape": "^4.8.0"
   }
 }
