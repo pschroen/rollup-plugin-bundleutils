@@ -25,17 +25,17 @@
     "lint": "eslint . || exit 0"
   },
   "engines": {
-    "node": ">=4"
+    "node": ">=6.9.0"
   },
   "dependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "magic-string": "^0.22.4",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "magic-string": "^0.25.0",
     "uglify-es": "^3.3.9"
   },
   "devDependencies": {
-    "eslint": "^4.16.0",
-    "rollup": "^0.55.1",
-    "tape": "^4.8.0"
+    "eslint": "^5.2.0",
+    "rollup": "^0.63.4",
+    "tape": "^4.9.1"
   }
 }
