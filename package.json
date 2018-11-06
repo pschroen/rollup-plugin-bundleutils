@@ -30,12 +30,12 @@
   "dependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
-    "magic-string": "^0.25.0",
+    "magic-string": "^0.25.1",
     "uglify-es": "^3.3.9"
   },
   "devDependencies": {
-    "eslint": "^5.5.0",
-    "rollup": "^0.65.2",
+    "eslint": "^5.8.0",
+    "rollup": "^0.67.0",
     "tape": "^4.9.1"
   }
 }
