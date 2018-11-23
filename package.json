@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-bundleutils",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A set of functions commonly used after tree shaking",
   "homepage": "https://github.com/pschroen/rollup-plugin-bundleutils#readme",
   "keywords": [
