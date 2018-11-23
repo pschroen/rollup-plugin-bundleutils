@@ -19,13 +19,14 @@ npm install --save-dev rollup-plugin-bundleutils
 
 ```js
 // rollup.config.js
-import { timestamp, singletons, unexport, babel, uglify } from 'rollup-plugin-bundleutils';
+import { timestamp, regex, babel, uglify } from 'rollup-plugin-bundleutils';
 
 export default {
     // ...
     plugins: [
-        singletons(['GrumpyCat']),
-        unexport(),
+        regex([
+            [/^import.*\n{2,}/, '']
+        ]),
         babel({
             compact: false
         }),
@@ -48,13 +49,13 @@ console.log(timestamp()); // 2017-09-19 4:55pm
 ```
 
 
-### singletons
+### regex
 
-Add singleton pattern (immediately invoked class expression) to classes after tree shaking.
+[JavaScript String replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) after tree shaking. Expects an Array of `regexp|substr, newSubstr|function` pairs.
 
 ```js
 // rollup.config.js
-import { singletons } from 'rollup-plugin-bundleutils';
+import { regex } from 'rollup-plugin-bundleutils';
 
 export default {
     input: 'src/main.js',
@@ -62,75 +63,12 @@ export default {
         file: 'bundle.js',
         format: 'es'
     },
-    plugins: [ singletons(['GrumpyCat']) ]
+    plugins: [
+        regex([
+            [/\n{2,}export.*$/, '']
+        ])
+    ]
 };
-```
-
-```js
-// src/main.js
-class GrumpyCat {
-    speak() {
-        return this;
-    }
-}
-
-export { GrumpyCat };
-```
-
-The result.
-
-```js
-const GrumpyCat = new ( // Singleton pattern (IICE)
-
-class GrumpyCat {
-    speak() {
-        return this;
-    }
-}
-
-)(); // Singleton pattern (IICE)
-
-export { GrumpyCat };
-```
-
-
-### unexport
-
-Strip exports after tree shaking for browsers.
-
-```js
-// rollup.config.js
-import { unexport } from 'rollup-plugin-bundleutils';
-
-export default {
-    input: 'src/main.js',
-    output: {
-        file: 'bundle.js',
-        format: 'es'
-    },
-    plugins: [ unexport() ]
-};
-```
-
-```js
-// src/main.js
-class GrumpyCat {
-    speak() {
-        return this;
-    }
-}
-
-export { GrumpyCat };
-```
-
-The result.
-
-```js
-class GrumpyCat {
-    speak() {
-        return this;
-    }
-}
 ```
 
 
@@ -148,7 +86,9 @@ export default {
         file: 'bundle.js',
         format: 'es'
     },
-    plugins: [ babel() ]
+    plugins: [
+        babel()
+    ]
 };
 ```
 
@@ -167,7 +107,9 @@ export default {
         file: 'bundle.js',
         format: 'es'
     },
-    plugins: [ uglify() ]
+    plugins: [
+        uglify()
+    ]
 };
 ```
 

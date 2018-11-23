@@ -2,8 +2,6 @@
  * @author Patrick Schroen / https://github.com/pschroen
  */
 
-/* eslint-disable no-cond-assign */
-
 'use strict';
 
 const MagicString = require('magic-string');
@@ -24,63 +22,30 @@ function timestamp() {
     return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${hours}:${pad(minutes)}${ampm}`;
 }
 
-// add singletons after tree shaking
-function singletons(values = []) {
+// regex replace after tree shaking
+function regex(replacements) {
     return {
-        name: 'singletons',
+        name: 'regex',
 
         transformBundle(code) {
             const magicString = new MagicString(code);
-            let pattern = new RegExp(`class (${values.join('|')})(\\s[\\s\\S]*?\\n})`, 'g'),
-                hasReplacements = false,
-                match,
-                start,
-                end,
-                replacement;
+            let hasReplacements = false;
 
-            while (match = pattern.exec(code)) {
-                hasReplacements = true;
+            replacements.forEach(replacement => {
+                let [find, replace = ''] = replacement;
+                if (typeof find === 'string') find = new RegExp(find);
+                if (!find.global) find = new RegExp(find.source, 'g' + String(find).split('/').pop());
 
-                start = match.index;
-                end = start + match[0].length;
-                replacement = String(`const ${match[1]} = new ( // Singleton pattern (IICE)\n\nclass ${match[1]}${match[2]}\n\n)(); // Singleton pattern (IICE)`);
+                let match, start, end;
+                while ((match = find.exec(code))) {
+                    hasReplacements = true;
 
-                magicString.overwrite(start, end, replacement);
-            }
+                    start = match.index;
+                    end = start + match[0].length;
 
-            if (!hasReplacements) return null;
-
-            return {
-                code: magicString.toString(),
-                map: magicString.generateMap({ hires: true })
-            };
-        }
-    };
-}
-
-// strip exports after tree shaking
-function unexport() {
-    return {
-        name: 'unexport',
-
-        transformBundle(code) {
-            const magicString = new MagicString(code);
-            let pattern = new RegExp('\\n{2,}export.*$', 'g'),
-                hasReplacements = false,
-                match,
-                start,
-                end,
-                replacement;
-
-            while (match = pattern.exec(code)) {
-                hasReplacements = true;
-
-                start = match.index;
-                end = start + match[0].length;
-                replacement = String('');
-
-                magicString.overwrite(start, end, replacement);
-            }
+                    magicString.overwrite(start, end, typeof replace === 'function' ? replace.apply(null, match) || '' : replace.replace(/\$(\d+)/, (str, index) => match[index]));
+                }
+            });
 
             if (!hasReplacements) return null;
 
@@ -117,4 +82,4 @@ function uglify(options = {}) {
     };
 }
 
-module.exports = { pad, timestamp, singletons, unexport, babel, uglify };
+module.exports = { pad, timestamp, regex, babel, uglify };
