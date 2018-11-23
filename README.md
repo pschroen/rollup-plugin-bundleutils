@@ -26,7 +26,9 @@ export default {
     plugins: [
         singletons(['GrumpyCat']),
         unexport(),
-        babel(),
+        babel({
+            compact: false
+        }),
         uglify({
             output: {
                 preamble: `// ${timestamp()}\n`

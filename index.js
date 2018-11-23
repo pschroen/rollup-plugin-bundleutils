@@ -24,7 +24,7 @@ function timestamp() {
     return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${hours}:${pad(minutes)}${ampm}`;
 }
 
-// Add singletons after tree shaking
+// add singletons after tree shaking
 function singletons(values = []) {
     return {
         name: 'singletons',
@@ -58,7 +58,7 @@ function singletons(values = []) {
     };
 }
 
-// Strip exports after tree shaking
+// strip exports after tree shaking
 function unexport() {
     return {
         name: 'unexport',
@@ -92,21 +92,20 @@ function unexport() {
     };
 }
 
-// Transpile after tree shaking
-function babel() {
+// transpile after tree shaking
+function babel(options = {}) {
     return {
         name: 'babel',
 
         transformBundle(code) {
-            return transform(code, {
-                presets: [['env', { modules: false }]],
-                sourceMaps: true
-            });
+            options.presets = [['env', { modules: false }]];
+            options.sourceMaps = true;
+            return transform(code, options);
         }
     };
 }
 
-// Minify after tree shaking
+// minify after tree shaking
 function uglify(options = {}) {
     return {
         name: 'uglify',
