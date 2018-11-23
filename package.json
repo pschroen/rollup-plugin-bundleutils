@@ -34,8 +34,8 @@
     "uglify-es": "^3.3.9"
   },
   "devDependencies": {
-    "eslint": "^5.8.0",
-    "rollup": "^0.67.0",
+    "eslint": "^5.9.0",
+    "rollup": "^0.67.3",
     "tape": "^4.9.1"
   }
 }
