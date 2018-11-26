@@ -25,7 +25,7 @@ export default {
     // ...
     plugins: [
         regex([
-            [/^import.*\n{2,}/, '']
+            [/^import.*[\r\n]+/m, '']
         ]),
         babel({
             compact: false
@@ -65,7 +65,7 @@ export default {
     },
     plugins: [
         regex([
-            [/\n{2,}export.*$/, '']
+            [/^[\r\n]+export.*/m, '']
         ])
     ]
 };

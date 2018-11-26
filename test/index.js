@@ -7,7 +7,7 @@ process.chdir('test');
 
 test('strip exports', assert => rollup.rollup({
     input: 'fixtures/basic.js',
-    plugins: [ regex([[/\n{2,}export.*$/, '']]) ]
+    plugins: [ regex([[/^[\r\n]+export.*/m, '']]) ]
 }).then(bundle => bundle.generate({ format: 'es' })).then(generated => {
     assert.true(!~generated.code.indexOf('export'));
     assert.end();
