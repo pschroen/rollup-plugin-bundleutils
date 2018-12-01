@@ -1,19 +1,16 @@
 # rollup-plugin-bundleutils
-[![Build Status](https://travis-ci.org/pschroen/rollup-plugin-bundleutils.svg)]()
-[![Latest NPM release](https://img.shields.io/npm/v/rollup-plugin-bundleutils.svg)]()
-[![License](https://img.shields.io/npm/l/rollup-plugin-bundleutils.svg)]()
-[![Dependencies](https://img.shields.io/david/pschroen/rollup-plugin-bundleutils.svg)]()
-[![Dev Dependencies](https://img.shields.io/david/dev/pschroen/rollup-plugin-bundleutils.svg)]()
+[![NPM Package][npm]][npm-url]
+[![Build Status][build-status]][build-status-url]
+[![Dependencies][dependencies]][dependencies-url]
+[![Dev Dependencies][dev-dependencies]][dev-dependencies-url]
 
 A set of functions commonly used after tree shaking.
-
 
 ## Installation
 
 ```bash
 npm install --save-dev rollup-plugin-bundleutils
 ```
-
 
 ## Usage
 
@@ -39,7 +36,6 @@ export default {
 };
 ```
 
-
 ### timestamp
 
 ```js
@@ -47,7 +43,6 @@ import { timestamp } from 'rollup-plugin-bundleutils';
 
 console.log(timestamp()); // 2017-09-19 4:55pm
 ```
-
 
 ### regex
 
@@ -71,7 +66,6 @@ export default {
 };
 ```
 
-
 ### babel
 
 Transpile bundle after tree shaking.
@@ -91,7 +85,6 @@ export default {
     ]
 };
 ```
-
 
 ### uglify
 
@@ -113,7 +106,6 @@ export default {
 };
 ```
 
-
 ### pad
 
 ```js
@@ -122,12 +114,20 @@ import { pad } from 'rollup-plugin-bundleutils';
 console.log(pad(1)); // 01
 ```
 
-
 ## Changelog
 
 * [Releases](https://github.com/pschroen/rollup-plugin-bundleutils/releases)
 
-
 ## License
 
 Released under the [MIT license](LICENSE).
+
+
+[npm]: https://img.shields.io/npm/v/rollup-plugin-bundleutils.svg
+[npm-url]: https://www.npmjs.com/package/rollup-plugin-bundleutils
+[build-status]: https://travis-ci.org/pschroen/rollup-plugin-bundleutils.svg
+[build-status-url]: https://travis-ci.org/pschroen/rollup-plugin-bundleutils
+[dependencies]: https://img.shields.io/david/pschroen/rollup-plugin-bundleutils.svg
+[dependencies-url]: https://david-dm.org/pschroen/rollup-plugin-bundleutils
+[dev-dependencies]: https://img.shields.io/david/dev/pschroen/rollup-plugin-bundleutils.svg
+[dev-dependencies-url]: https://david-dm.org/pschroen/rollup-plugin-bundleutils?type=dev
