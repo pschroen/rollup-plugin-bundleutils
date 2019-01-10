@@ -27,7 +27,7 @@ function regex(replacements) {
     return {
         name: 'regex',
 
-        transformBundle(code) {
+        renderChunk(code) {
             const magicString = new MagicString(code);
             let hasReplacements = false;
 
@@ -62,7 +62,7 @@ function babel(options = {}) {
     return {
         name: 'babel',
 
-        transformBundle(code) {
+        renderChunk(code) {
             options.presets = [['env', { modules: false }]];
             options.sourceMaps = true;
             return transform(code, options);
@@ -75,7 +75,7 @@ function uglify(options = {}) {
     return {
         name: 'uglify',
 
-        transformBundle(code) {
+        renderChunk(code) {
             options.sourceMap = true;
             return minify(code, options);
         }
