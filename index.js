@@ -6,7 +6,7 @@
 
 const MagicString = require('magic-string');
 const { transform } = require('babel-core');
-const { minify } = require('uglify-es');
+const { minify } = require('terser');
 
 function pad(number) {
     return number < 10 ? '0' + number : number;
