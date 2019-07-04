@@ -67,9 +67,9 @@ function babel(options = {}) {
 }
 
 // minify after tree shaking
-function uglify(options = {}) {
+function terser(options = {}) {
     return {
-        name: 'uglify',
+        name: 'terser',
 
         renderChunk(code) {
             options.sourceMap = true;
@@ -78,4 +78,11 @@ function uglify(options = {}) {
     };
 }
 
-module.exports = { timestamp, regex, babel, uglify };
+module.exports = {
+    timestamp,
+    regex,
+    babel,
+    terser,
+    uglify: terser,
+    minify: terser
+};

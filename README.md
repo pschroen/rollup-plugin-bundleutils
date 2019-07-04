@@ -16,7 +16,7 @@ npm install --save-dev rollup-plugin-bundleutils
 
 ```js
 // rollup.config.js
-import { timestamp, regex, babel, uglify } from 'rollup-plugin-bundleutils';
+import { timestamp, regex, babel, terser } from 'rollup-plugin-bundleutils';
 
 export default {
     // ...
@@ -27,7 +27,7 @@ export default {
         babel({
             compact: false
         }),
-        uglify({
+        terser({
             output: {
                 preamble: `// ${timestamp()}\n`
             }
@@ -86,13 +86,13 @@ export default {
 };
 ```
 
-### uglify
+### terser [uglify|minify]
 
 Minify bundle after tree shaking.
 
 ```js
 // rollup.config.js
-import { uglify } from 'rollup-plugin-bundleutils';
+import { terser } from 'rollup-plugin-bundleutils';
 
 export default {
     input: 'src/main.js',
@@ -101,7 +101,7 @@ export default {
         format: 'es'
     },
     plugins: [
-        uglify()
+        terser()
     ]
 };
 ```
