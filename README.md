@@ -106,14 +106,6 @@ export default {
 };
 ```
 
-### pad
-
-```js
-import { pad } from 'rollup-plugin-bundleutils';
-
-console.log(pad(1)); // 01
-```
-
 ## Changelog
 
 * [Releases](https://github.com/pschroen/rollup-plugin-bundleutils/releases)

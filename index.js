@@ -8,10 +8,6 @@ const MagicString = require('magic-string');
 const { transform } = require('babel-core');
 const { minify } = require('terser');
 
-function pad(num) {
-    return num < 10 ? '0' + num.toString() : num.toString();
-}
-
 function timestamp() {
     let now = new Date(),
         hours = now.getHours(),
@@ -19,7 +15,7 @@ function timestamp() {
         ampm = hours >= 12 ? 'pm' : 'am';
     hours = hours % 12;
     hours = hours ? hours : 12;
-    return `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${hours}:${pad(minutes)}${ampm}`;
+    return `${now.getFullYear().toString()}-${(now.getMonth() + 1).toString().padStart(2, '0')}-${now.getDate().toString().padStart(2, '0')} ${hours.toString()}:${minutes.toString().padStart(2, '0')}${ampm}`;
 }
 
 // regex replace after tree shaking
@@ -82,4 +78,4 @@ function uglify(options = {}) {
     };
 }
 
-module.exports = { pad, timestamp, regex, babel, uglify };
+module.exports = { timestamp, regex, babel, uglify };
