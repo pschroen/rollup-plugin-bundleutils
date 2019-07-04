@@ -5,7 +5,7 @@
 'use strict';
 
 const MagicString = require('magic-string');
-const { transform } = require('babel-core');
+const { transform } = require('@babel/core');
 const { minify } = require('terser');
 
 function timestamp() {
@@ -59,7 +59,7 @@ function babel(options = {}) {
         name: 'babel',
 
         renderChunk(code) {
-            options.presets = [['env', { modules: false }]];
+            options.presets = [['@babel/preset-env', { modules: false }]];
             options.sourceMaps = true;
             return transform(code, options);
         }
