@@ -55,8 +55,8 @@ import { regex } from 'rollup-plugin-bundleutils';
 export default {
     input: 'src/main.js',
     output: {
-        file: 'bundle.js',
-        format: 'es'
+        file: 'public/bundle.js',
+        format: 'iife'
     },
     plugins: [
         regex([
@@ -77,8 +77,8 @@ import { babel } from 'rollup-plugin-bundleutils';
 export default {
     input: 'src/main.js',
     output: {
-        file: 'bundle.js',
-        format: 'es'
+        file: 'public/bundle.js',
+        format: 'iife'
     },
     plugins: [
         babel()
@@ -97,8 +97,8 @@ import { terser } from 'rollup-plugin-bundleutils';
 export default {
     input: 'src/main.js',
     output: {
-        file: 'bundle.js',
-        format: 'es'
+        file: 'public/bundle.js',
+        format: 'iife'
     },
     plugins: [
         terser()
