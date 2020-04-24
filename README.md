@@ -1,4 +1,5 @@
 # rollup-plugin-bundleutils
+
 [![NPM Package][npm]][npm-url]
 [![Build Status][build-status]][build-status-url]
 [![Dependencies][dependencies]][dependencies-url]
@@ -8,7 +9,7 @@ A set of functions commonly used after tree shaking.
 
 ## Installation
 
-```bash
+```sh
 npm install --save-dev rollup-plugin-bundleutils
 ```
 
@@ -22,14 +23,15 @@ export default {
     // ...
     plugins: [
         regex([
-            [/^import.*[\r\n]+/m, '']
+            [/^import\s.*[\r\n]+/gm, '']
         ]),
         babel({
-            compact: false
+            compact: false,
+            plugins: ['@babel/plugin-proposal-class-properties']
         }),
         terser({
             output: {
-                preamble: `// ${timestamp()}\n`
+                preamble: `// ${timestamp()}`
             }
         })
     ]
@@ -60,7 +62,7 @@ export default {
     },
     plugins: [
         regex([
-            [/^[\r\n]+export.*/m, '']
+            [/^[\r\n]+export\s.*/gm, '']
         ])
     ]
 };
