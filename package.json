@@ -26,14 +26,14 @@
     "travis": "npm run lint && npm test"
   },
   "dependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
     "magic-string": "^0.25.7",
-    "terser": "^4.6.6"
+    "terser": "^4.6.13"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "rollup": "^2.0.6",
-    "tape": "^4.13.2"
+    "rollup": "^2.8.0",
+    "tape": "^5.0.0"
   }
 }
