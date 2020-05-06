@@ -54,25 +54,31 @@ function regex(replacements) {
 }
 
 // transpile after tree shaking
-function babel(options = {}) {
+function babel(userOptions = {}) {
+    const options = Object.assign({
+        presets: [['@babel/preset-env', { modules: false }]],
+        sourceMaps: true
+    }, userOptions);
+
     return {
         name: 'babel',
 
         renderChunk(code) {
-            options.presets = [['@babel/preset-env', { modules: false }]];
-            options.sourceMaps = true;
             return transform(code, options);
         }
     };
 }
 
 // minify after tree shaking
-function terser(options = {}) {
+function terser(userOptions = {}) {
+    const options = Object.assign({
+        sourceMap: true
+    }, userOptions);
+
     return {
         name: 'terser',
 
         renderChunk(code) {
-            options.sourceMap = true;
             return minify(code, options);
         }
     };
