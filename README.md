@@ -83,7 +83,12 @@ export default {
         format: 'iife'
     },
     plugins: [
-        babel()
+        babel({
+            // Default
+            presets: [
+                ['@babel/preset-env', { modules: false }]
+            ]
+        })
     ]
 };
 ```
