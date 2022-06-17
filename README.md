@@ -8,7 +8,11 @@ A set of functions commonly used after tree shaking.
 ## Installation
 
 ```sh
-npm install --save-dev rollup-plugin-bundleutils
+npm i -D rollup-plugin-bundleutils
+
+# or
+
+yarn add -D rollup-plugin-bundleutils
 ```
 
 ## Usage
