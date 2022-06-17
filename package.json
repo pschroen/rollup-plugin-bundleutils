@@ -10,7 +10,7 @@
     "utils",
     "bundleutils"
   ],
-  "author": "Patrick Schroen",
+  "author": "pschroen",
   "repository": {
     "type": "git",
     "url": "https://github.com/pschroen/rollup-plugin-bundleutils"
