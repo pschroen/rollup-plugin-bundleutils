@@ -1,9 +1,7 @@
 # rollup-plugin-bundleutils
 
 [![NPM Package][npm]][npm-url]
-[![Build Status][build-status]][build-status-url]
-[![Dependencies][dependencies]][dependencies-url]
-[![Dev Dependencies][dev-dependencies]][dev-dependencies-url]
+[![NPM Package][lgtm]][lgtm-url]
 
 A set of functions commonly used after tree shaking.
 
@@ -124,9 +122,5 @@ Released under the [MIT license](LICENSE).
 
 [npm]: https://img.shields.io/npm/v/rollup-plugin-bundleutils.svg
 [npm-url]: https://www.npmjs.com/package/rollup-plugin-bundleutils
-[build-status]: https://travis-ci.org/pschroen/rollup-plugin-bundleutils.svg
-[build-status-url]: https://travis-ci.org/pschroen/rollup-plugin-bundleutils
-[dependencies]: https://img.shields.io/david/pschroen/rollup-plugin-bundleutils.svg
-[dependencies-url]: https://david-dm.org/pschroen/rollup-plugin-bundleutils
-[dev-dependencies]: https://img.shields.io/david/dev/pschroen/rollup-plugin-bundleutils.svg
-[dev-dependencies-url]: https://david-dm.org/pschroen/rollup-plugin-bundleutils?type=dev
+[lgtm]: https://img.shields.io/lgtm/alerts/github/pschroen/rollup-plugin-bundleutils.svg
+[lgtm-url]: https://lgtm.com/projects/g/pschroen/rollup-plugin-bundleutils
