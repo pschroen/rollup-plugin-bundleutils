@@ -1,7 +1,7 @@
 # rollup-plugin-bundleutils
 
 [![NPM Package][npm]][npm-url]
-[![NPM Package][lgtm]][lgtm-url]
+[![NPM Package][deepscan]][deepscan-url]
 
 A set of functions commonly used after tree shaking.
 
@@ -126,5 +126,5 @@ Released under the [MIT license](LICENSE).
 
 [npm]: https://img.shields.io/npm/v/rollup-plugin-bundleutils.svg
 [npm-url]: https://www.npmjs.com/package/rollup-plugin-bundleutils
-[lgtm]: https://img.shields.io/lgtm/alerts/github/pschroen/rollup-plugin-bundleutils.svg
-[lgtm-url]: https://lgtm.com/projects/g/pschroen/rollup-plugin-bundleutils
+[deepscan]: https://deepscan.io/api/teams/20020/projects/23506/branches/715192/badge/grade.svg
+[deepscan-url]: https://deepscan.io/dashboard#view=project&tid=20020&pid=23506&bid=715192
