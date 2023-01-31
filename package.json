@@ -19,6 +19,7 @@
     "url": "https://github.com/pschroen/rollup-plugin-bundleutils/issues"
   },
   "license": "MIT",
+  "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
