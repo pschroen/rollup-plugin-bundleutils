@@ -1,14 +1,11 @@
-import { chdir } from 'node:process';
 import { rollup } from 'rollup';
 import test from 'ava';
 
 import { regex, babel, terser } from '../index.js';
 
-chdir('test');
-
 test('regex replace', async t => {
     const bundle = await rollup({
-        input: 'fixtures/basic.js',
+        input: 'test/fixtures/basic.js',
         plugins: [regex([[/^[\r\n]+export.*/m, '']])]
     });
 
@@ -20,7 +17,7 @@ test('regex replace', async t => {
 
 test('transpile class', async t => {
     const bundle = await rollup({
-        input: 'fixtures/basic.js',
+        input: 'test/fixtures/basic.js',
         plugins: [babel()]
     });
 
@@ -32,7 +29,7 @@ test('transpile class', async t => {
 
 test('minify', async t => {
     const bundle = await rollup({
-        input: 'fixtures/basic.js',
+        input: 'test/fixtures/basic.js',
         plugins: [terser()]
     });
 

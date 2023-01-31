@@ -22,7 +22,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "ava --no-worker-threads"
+    "test": "ava"
   },
   "dependencies": {
     "@babel/core": "^7.20.12",
