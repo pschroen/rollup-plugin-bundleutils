@@ -2,13 +2,11 @@
  * @author pschroen / https://ufo.ai/
  */
 
-'use strict';
+import MagicString from 'magic-string';
+import { transform } from '@babel/core';
+import { minify } from 'terser';
 
-const MagicString = require('magic-string');
-const { transform } = require('@babel/core');
-const { minify } = require('terser');
-
-function timestamp() {
+export function timestamp() {
     let now = new Date(),
         hours = now.getHours(),
         minutes = now.getMinutes(),
@@ -19,10 +17,9 @@ function timestamp() {
 }
 
 // regex replace after tree shaking
-function regex(replacements) {
+export function regex(replacements) {
     return {
         name: 'regex',
-
         renderChunk(code) {
             const magicString = new MagicString(code);
             let hasReplacements = false;
@@ -54,7 +51,7 @@ function regex(replacements) {
 }
 
 // transpile after tree shaking
-function babel(userOptions = {}) {
+export function babel(userOptions = {}) {
     const options = Object.assign({
         presets: [['@babel/preset-env', { modules: false }]],
         sourceMaps: true
@@ -62,7 +59,6 @@ function babel(userOptions = {}) {
 
     return {
         name: 'babel',
-
         renderChunk(code) {
             return transform(code, options);
         }
@@ -70,25 +66,15 @@ function babel(userOptions = {}) {
 }
 
 // minify after tree shaking
-function terser(userOptions = {}) {
+export function terser(userOptions = {}) {
     const options = Object.assign({
         sourceMap: true
     }, userOptions);
 
     return {
         name: 'terser',
-
         renderChunk(code) {
             return minify(code, options);
         }
     };
 }
-
-module.exports = {
-    timestamp,
-    regex,
-    babel,
-    terser,
-    uglify: terser,
-    minify: terser
-};

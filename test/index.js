@@ -1,18 +1,19 @@
-const rollup = require('rollup');
-const test = require('tape');
+import { chdir } from 'node:process';
+import { rollup } from 'rollup';
+import test from 'ava';
 
-const { regex } = require('../');
+import { regex } from '../index.js';
 
-process.chdir('test');
+chdir('test');
 
-test('strip exports', assert => rollup.rollup({
-    input: 'fixtures/basic.js',
-    plugins: [regex([[/^[\r\n]+export.*/m, '']])]
-}).then(bundle => bundle.generate({ format: 'es' })).then(generated => {
-    const code = generated.output[0].code;
-    assert.true(!code.includes('export'));
-    assert.end();
-}).catch(err => {
-    assert.error(err);
-    assert.end();
-}));
+test('strip exports', async t => {
+    const bundle = await rollup({
+        input: 'fixtures/basic.js',
+        plugins: [regex([[/^[\r\n]+export.*/m, '']])]
+    });
+
+    const { output } = await bundle.generate({ format: 'es' });
+    const code = output[0].code;
+
+    t.is(!code.includes('export'), true);
+});
