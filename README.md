@@ -1,11 +1,11 @@
 # rollup-plugin-bundleutils
 
 [![NPM Package][npm]][npm-url]
-[![NPM Package][deepscan]][deepscan-url]
+[![DeepScan][deepscan]][deepscan-url]
 
 A set of functions commonly used after tree shaking.
 
-## Installation
+## Install
 
 ```sh
 npm i -D rollup-plugin-bundleutils
@@ -39,6 +39,8 @@ export default {
     ]
 };
 ```
+
+## Exports
 
 ### timestamp
 
